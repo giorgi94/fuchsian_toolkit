@@ -1,4 +1,34 @@
 from fuchsian_toolkit import get_fuchsian_transform
+from sympy import Matrix, S
+
+
+def example_0():
+    A_list = [
+        Matrix([[S("1"), S("0")], [S("-3/4"), S("2")]]),
+        Matrix([[S("-3/2"), S("0")], [S("1/2"), S("-3/2")]]),
+        Matrix([[S("1/2"), S("0")], [S("1/4"), S("-1/2")]]),
+    ]
+
+    s_list = [2, 0, 1]
+
+    mu_list = [
+        [0, 0],
+        [0, 0],
+        [0, 0],
+    ]
+
+    T, fuch = get_fuchsian_transform(A_list, s_list, mu_list)
+
+    for A in fuch.A_list:
+        print(A)
+
+    print()
+
+    print(fuch.C)
+
+    print()
+
+    print(T)
 
 
 def example_1():
@@ -110,7 +140,7 @@ def example_3():
 
 
 if __name__ == "__main__":
-    # example_0()
+    example_0()
     # example_1()
     # example_2()
-    example_3()
+    # example_3()
